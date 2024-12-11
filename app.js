@@ -39,12 +39,18 @@ var createNewTaskElement=function(taskString){
   checkBox.type="checkbox";
   editInput.type="text";
   editInput.className="task";
+  editInput.classList.add("task-input")
+  listItem.className="task-item"
+  checkBox.className="task-checkbox"
+  label.classList.add("task-label")
+
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="edit";
+  editButton.className="edit btn";
 
-  deleteButton.className="delete";
+  deleteButton.className="delete btn";
   deleteButtonImg.src="./remove.svg";
+  deleteButtonImg.className="delete-img"
   deleteButton.appendChild(deleteButtonImg);
 
 
@@ -89,13 +95,13 @@ var editTask=function(){
   //If class of the parent is .editmode
   if(containsClass){
 
-      //switch to .editmode
-      //label becomes the inputs value.
-      label.innerText=editInput.value;
-      editBtn.innerText="Edit";
+  //switch to .editmode
+  //label becomes the inputs value.
+  label.innerText=editInput.value;
+  editBtn.innerText="Edit";
   }else{
-      editInput.value=label.innerText;
-      editBtn.innerText="Save";
+  editInput.value=label.innerText;
+  editBtn.innerText="Save";
   }
 
   //toggle .editmode on the parent.
